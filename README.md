@@ -5,6 +5,6 @@ A program that logs into a users account and posts discussion questions on the s
 
 # TODO
 
-Grabbing a list of questions from various websites and posting them on the designated class site.
+Grabbing and posting a list of questions from various websites to the designated class site.
 
 
