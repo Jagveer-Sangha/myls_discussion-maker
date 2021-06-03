@@ -18,38 +18,39 @@ envars = basepath.cwd() / '.env'
 load_dotenv(envars)
 # Read an environment variable.
 KEY = os.getenv('KEY')
+
 # Check
 print(f'The client id is: {KEY}.')
 
 # Change path name, env var doesn't work when the name is PATH
-PATH = "/Users/jagveer/Library/Python/3.8/drivers/chromedriver"
+PATH = os.getenv('CHROME_PATH')
 
 link = "https://mylearningspace.wlu.ca/d2l/home"
 driver = webdriver.Chrome(PATH)
 driver.get(link)
 time.sleep(5)
-
-
+USERNAME = os.getenv('USERNAME')
+PASSWORD = os.getenv('PASSWORD')
 try:
     # Change either driver or time
     main = WebDriverWait(driver, 10).until(
         # Change by. to match
-        EC.presence_of_element_located((By.ID, "userName"))
+        EC.presence_of_element_located((By.ID, 'userName'))
     )
     main.click()
     main.clear()
 
     # enter the students username
-    main.send_keys('')
+    main.send_keys(USERNAME)
 
     main = WebDriverWait(driver, 10).until(
         # Change by. to match
-        EC.presence_of_element_located((By.ID, "password"))
+        EC.presence_of_element_located((By.ID, 'password'))
     )
     main.click()
     main.clear()
     # enter the students password
-    main.send_keys("www")
+    main.send_keys(PASSWORD)
 
     driver.find_element_by_class_name("d2l-button").click()
     time.sleep(3)
