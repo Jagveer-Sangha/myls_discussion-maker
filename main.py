@@ -1,14 +1,30 @@
+import dotenv
 from selenium import webdriver
 import time
 # Imports for the try block
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+# Imports for .env
+import os
+from pathlib import Path
+from dotenv import load_dotenv, find_dotenv
 
+# Get the base directory
+basepath = Path()
+basedir = str(basepath.cwd())
+# Load the environment variables
+envars = basepath.cwd() / '.env'
+load_dotenv(envars)
+# Read an environment variable.
+KEY = os.getenv('KEY')
+# Check
+print(f'The client id is: {KEY}.')
+
+# Change path name, env var doesn't work when the name is PATH
 PATH = "/Users/jagveer/Library/Python/3.8/drivers/chromedriver"
 
 link = "https://mylearningspace.wlu.ca/d2l/home"
-
 driver = webdriver.Chrome(PATH)
 driver.get(link)
 time.sleep(5)
