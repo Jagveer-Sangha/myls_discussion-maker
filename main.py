@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 # Imports for the try block
 from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # Imports for .env
@@ -40,7 +41,7 @@ try:
     main.click()
     main.clear()
 
-    # enter the students username
+    # Enters the users username
     main.send_keys(USERNAME)
 
     main = WebDriverWait(driver, 10).until(
@@ -49,7 +50,7 @@ try:
     )
     main.click()
     main.clear()
-    # enter the students password
+    # Enters the users password
     main.send_keys(PASSWORD)
 
     driver.find_element_by_class_name("d2l-button").click()
@@ -68,7 +69,7 @@ try:
 
     main = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located(
-            (By.XPATH, "//*[@title='CP-213-OC1 - Object-Oriented Programming - 494.202009']"))
+            (By.XPATH, "//*[@title='CP-386-C - Operating Systems - 853.202105']"))
     )
     main.click()
 
@@ -79,9 +80,14 @@ except:
 # Complete actions within the classroom
 try:
     main = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "//div[@slot='main']"))
+        EC.presence_of_element_located(
+            (By.LINK_TEXT, 'Discussions'))
     )
-
-
+    main.click()
 except:
     driver.quit()
+
+# Opens a new tab
+driver.execute_script("window.open('https://www.google.com');")
+
+# Collect data from another website
