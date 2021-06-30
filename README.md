@@ -5,6 +5,8 @@ A program that logs into a users account and posts discussion questions on the s
 
 # TODO
 
-- Grabbing and posting a list of questions from various websites to the designated class site.
+- Fetching general programming questions from various sites.
+- Implementing a datastructure to store values?
+- Fetching and posting stored questions to the designated class site.
 - Create various def and .json to send a post request to the http
 
