@@ -136,3 +136,6 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# Stores MAC custom attributes of its containing folder such as position of icons 
+.DS_Store
