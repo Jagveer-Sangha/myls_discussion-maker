@@ -86,8 +86,3 @@ try:
     main.click()
 except:
     driver.quit()
-
-# Opens a new tab
-driver.execute_script("window.open('https://www.google.com');")
-
-# Collect data from another website
